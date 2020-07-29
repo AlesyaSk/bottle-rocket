@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { getAllRestaurants } from "./actions/restaurants";
 
 const App: React.FunctionComponent = () => {
+  const restaurants = useSelector((state: any) => state.restaurants);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllRestaurants());
+  }, [dispatch]);
+
+  console.log(restaurants);
+
   return (
     <div className="App">
       <header className="App-header">
