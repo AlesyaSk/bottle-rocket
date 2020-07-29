@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import reducers from './reducers';
 import rootSaga from './sagas';
+import './index.css';
+import App from './App';
 
 declare global {
     interface Window {
@@ -26,11 +27,13 @@ const store = createStore(reducers, enhancer);
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-    <Provider store={store}>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-    </Provider>,
+    <BrowserRouter>
+        <Provider store={store}>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </Provider>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
