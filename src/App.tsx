@@ -1,31 +1,25 @@
-import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 
-import HomePage from './pages/HomePage';
-import DetailsPage from './pages/DetailsPage';
-import { getAllRestaurants } from "./actions/restaurants";
+import DetailView from './components/DetailView';
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import {getAllRestaurants} from "./actions/restaurants";
+import ListView from "./components/ListView";
 
 const App: React.FunctionComponent = () => {
-  const restaurants = useSelector((state: any) => state.restaurants);
-  const dispatch = useDispatch();
+    const restaurants = useSelector((state: any) => state.restaurants);
+    const dispatch = useDispatch();
+    const [selectedRestaurant, setSelectedRestaurant] = useState();
 
-  useEffect(() => {
-    dispatch(getAllRestaurants());
-  }, [dispatch]);
-
-  console.log(restaurants);
+    useEffect(() => {
+        dispatch(getAllRestaurants());
+    }, [dispatch]);
 
   return (
       <>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/:restaurantName" component={DetailsPage} />
-          </Switch>
-          <Footer />
+        <Header />
+        <ListView restaurantsList={restaurants.list} clickHandler={setSelectedRestaurant} />
+        <DetailView restaurant={selectedRestaurant}/>
       </>
   );
 };
