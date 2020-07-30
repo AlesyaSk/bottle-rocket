@@ -10,8 +10,8 @@ import ListView from "./components/ListView";
 const App: React.FunctionComponent = () => {
     const restaurants = useSelector((state: any) => state.restaurants);
     const dispatch = useDispatch();
-    const [selectedRestaurant, setSelectedRestaurant] = useState();
-
+    const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+    const [isDetailViewOpen, setIsDetailViewOpen] = useState(false);
 
     useEffect(() => {
         dispatch(getAllRestaurants());
@@ -19,10 +19,10 @@ const App: React.FunctionComponent = () => {
 
   return (
       <>
-        <Header isBackArrowShown={selectedRestaurant} handleClick={() => setSelectedRestaurant(null)}/>
+        <Header isBackArrowShown={isDetailViewOpen} handleClick={() => {setIsDetailViewOpen(false); document.body.style.overflow = "auto"; window.scrollTo(0, 0);}}/>
         <Content>
-            {!selectedRestaurant && <ListView restaurantsList={restaurants.list} clickHandler={setSelectedRestaurant} />}
-            <DetailView restaurant={selectedRestaurant}/>
+            <ListView restaurantsList={restaurants.list} clickHandler={(restaurant) => {setSelectedRestaurant(restaurant); setIsDetailViewOpen(true); document.body.style.overflow = "hidden"; window.scrollTo(0, 0);}} />
+            <DetailView restaurant={selectedRestaurant} isOpen={isDetailViewOpen}/>
         </Content>
       </>
   );
