@@ -26,6 +26,7 @@ const Container = styled.div<{bg: string}> `
   background:  url(${gradient}) bottom, url(${props => props.bg}) no-repeat;
   height: 180px;
   background-size: cover;
+  cursor: pointer;
   
   @media screen and (min-width: 768px) {
     height: 300px;

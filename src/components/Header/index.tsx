@@ -13,7 +13,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = ({isBackArrowShown
 
     return (
         <StyledHeader>
-            { isBackArrowShown && <Icon src={back} alt="back" onClick={handleClick} />}
+            { isBackArrowShown && <Button  onClick={handleClick}><Icon src={back} alt="back" /></Button>}
             <span>Lunch Tyme</span>
             <Icon src={map} alt="map" />
         </StyledHeader>
@@ -43,4 +43,10 @@ const StyledHeader = styled.header`
 const Icon = styled.img`
     width: auto;
     height: 30px;
+`;
+
+const Button = styled.button`
+    background: transparent;
+    border: none;
+    cursor: pointer;
 `;

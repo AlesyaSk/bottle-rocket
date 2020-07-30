@@ -14,7 +14,7 @@ export interface DetailViewComponentProps {
 const DetailsView: React.FunctionComponent<DetailViewComponentProps> = ({restaurant, isOpen}: DetailViewComponentProps) => {
 
     return (
-        <CSSTransition in={isOpen} timeout={1500} unmountOnExit={true} classNames="wrapper">
+        <CSSTransition in={isOpen} timeout={500} unmountOnExit={true} classNames="wrapper">
             {(status) => {
                 return (
                     <Container className={status}>
@@ -64,11 +64,11 @@ const Container = styled.div`
     }
     
     &.entering {
-     animation: slide-in-right 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+     animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
     
     &.exiting {
-     animation: slide-out-right 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+     animation: slide-out-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
 `;
 

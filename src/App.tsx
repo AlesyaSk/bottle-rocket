@@ -19,7 +19,7 @@ const App: React.FunctionComponent = () => {
 
   return (
       <>
-        <Header isBackArrowShown={isDetailViewOpen} handleClick={() => {setIsDetailViewOpen(false); document.body.style.overflow = "auto"; window.scrollTo(0, 0);}}/>
+        <Header isBackArrowShown={isDetailViewOpen} handleClick={() => {setIsDetailViewOpen(false); document.body.style.overflow = "";}}/>
         <Content>
             <ListView restaurantsList={restaurants.list} clickHandler={(restaurant) => {setSelectedRestaurant(restaurant); setIsDetailViewOpen(true); document.body.style.overflow = "hidden"; window.scrollTo(0, 0);}} />
             <DetailView restaurant={selectedRestaurant} isOpen={isDetailViewOpen}/>
