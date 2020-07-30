@@ -4,11 +4,16 @@ import styled from 'styled-components/macro';
 import map from '../../assets/icon_map.png';
 import back from '../../assets/ic_webBack.png';
 
-const Header: React.FunctionComponent = () => {
+export interface HeaderComponentProps {
+    isBackArrowShown: boolean;
+    handleClick: () => void;
+}
+
+const Header: React.FunctionComponent<HeaderComponentProps> = ({isBackArrowShown, handleClick}: HeaderComponentProps) => {
 
     return (
         <StyledHeader>
-            <Icon src={back} alt="back" />
+            { isBackArrowShown && <Icon src={back} alt="back" onClick={handleClick} />}
             <span>Lunch Tyme</span>
             <Icon src={map} alt="map" />
         </StyledHeader>
@@ -27,6 +32,7 @@ const StyledHeader = styled.header`
          font-size: 17px;
          font-family: 'Avenir Next Demi', sans-serif;
          color: #FFFFFF;
+         margin: 0 auto;
      }
 `;
 
