@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa58fd0ea5ceee3409006f35b8e59828",
+    "revision": "c0d0f62b0af1a523ba7efece8aa9ea49",
     "url": "/bottle-rocket/index.html"
   },
   {
-    "revision": "0cf046d3ac1156a73718",
-    "url": "/bottle-rocket/static/css/main.e16aaf12.chunk.css"
+    "revision": "53847d408ae536d51d7d",
+    "url": "/bottle-rocket/static/css/main.1aacea33.chunk.css"
   },
   {
     "revision": "65daacdb7444408714bc",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bottle-rocket/static/js/2.2a7f1ee2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0cf046d3ac1156a73718",
-    "url": "/bottle-rocket/static/js/main.7c9eba49.chunk.js"
+    "revision": "53847d408ae536d51d7d",
+    "url": "/bottle-rocket/static/js/main.738240aa.chunk.js"
   },
   {
     "revision": "3234aad8039ec4b2bc1d",
