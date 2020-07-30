@@ -2,7 +2,6 @@ import React from "react";
 import styled from 'styled-components/macro';
 
 import Badge from "../../elements/Badge";
-
 import Map from '../Map';
 
 

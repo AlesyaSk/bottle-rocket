@@ -33,6 +33,10 @@ const StyledHeader = styled.header`
          font-family: 'Avenir Next Demi', sans-serif;
          color: #FFFFFF;
          margin: 0 auto;
+         
+         @media screen and (min-width: 768px) {
+          font-size: 24px;
+        }
      }
 `;
 

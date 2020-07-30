@@ -9,7 +9,7 @@ export interface MapComponentProps {
 }
 
 const Map: React.FunctionComponent<MapComponentProps> = ({ location, zoomLevel }: MapComponentProps) =>  (
-<Container>
+    <Container>
         <GoogleMapReact
             bootstrapURLKeys={{ key: 'AIzaSyBs6glXDwXHRRAekLR8sfBWuGPNGoysQJo' }}
             defaultCenter={location}
@@ -17,12 +17,16 @@ const Map: React.FunctionComponent<MapComponentProps> = ({ location, zoomLevel }
         >
             <LocationPin />
         </GoogleMapReact>
-</Container>
+    </Container>
 );
 
 export default Map;
 
 const Container = styled.div`
   height: 180px;
+  
+  @media screen and (min-width: 768px) {
+    height: 300px;
+  }
 `;
 

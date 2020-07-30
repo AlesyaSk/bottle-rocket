@@ -23,7 +23,11 @@ export default Card;
 const Container = styled.div<{bg: string}> `
   display: flex;
   align-items: flex-end;
-  background:  url(${gradient}), url(${props => props.bg}) no-repeat;
+  background:  url(${gradient}) bottom, url(${props => props.bg}) no-repeat;
   height: 180px;
   background-size: cover;
+  
+  @media screen and (min-width: 768px) {
+    height: 300px;
+  }
 `;

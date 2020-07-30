@@ -20,11 +20,19 @@ const Body = styled.div<{className: any}> `
   color: #FFFFFF;
   font-size: 12px;
   padding: 6px 12px;
+  
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const Name = styled.p`
   font-family: 'Avenir Next Demi', sans-serif;
   font-size: 16px;
   margin-bottom: 6px;
+  
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
