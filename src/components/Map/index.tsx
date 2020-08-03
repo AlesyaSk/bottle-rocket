@@ -3,8 +3,21 @@ import styled from "styled-components/macro";
 import GoogleMapReact from "google-map-react";
 import LocationPin from "./LocationPin";
 
+type locationType = {
+  address: string;
+  crossStreet: string;
+  lat: number;
+  lng: number;
+  postalCode: string;
+  cc: string;
+  city: string;
+  state: string;
+  country: string;
+  formattedAddress: Array<string>;
+};
+
 export interface MapComponentProps {
-  location: any;
+  location: locationType;
   zoomLevel: number;
 }
 
@@ -18,7 +31,7 @@ const Map: React.FunctionComponent<MapComponentProps> = ({
       defaultCenter={location}
       defaultZoom={zoomLevel}
     >
-      <LocationPin />
+      <LocationPin lat={location.lat} lng={location.lng} />
     </GoogleMapReact>
   </Container>
 );

@@ -7,6 +7,15 @@ import Map from "../Map";
 
 type location = {
   address: string;
+  crossStreet: string;
+  lat: number;
+  lng: number;
+  postalCode: string;
+  cc: string;
+  city: string;
+  state: string;
+  country: string;
+  formattedAddress: Array<string>;
 };
 
 type contact = {
@@ -21,7 +30,7 @@ type restaurant = {
   contact: contact;
 };
 export interface DetailViewComponentProps {
-  restaurant: restaurant;
+  restaurant: restaurant | null;
   isOpen: boolean;
 }
 
@@ -38,19 +47,23 @@ const DetailsView: React.FunctionComponent<DetailViewComponentProps> = ({
     >
       {(status) => {
         return (
-          <Container className={status}>
-            <Map location={restaurant.location} zoomLevel={10} />
-            <StyledBadge
-              name={restaurant.name}
-              category={restaurant.category}
-              className
-            />
-            <Contacts>
-              <p>{restaurant.location.address}</p>
-              <p>{restaurant.contact.formattedPhone}</p>
-              <p>{`@${restaurant.contact.twitter}`}</p>
-            </Contacts>
-          </Container>
+          <>
+            {restaurant && (
+              <Container className={status}>
+                <Map location={restaurant.location} zoomLevel={12} />
+                <StyledBadge
+                  name={restaurant.name}
+                  category={restaurant.category}
+                  className
+                />
+                <Contacts>
+                  <p>{restaurant.location.address}</p>
+                  <p>{restaurant.contact.formattedPhone}</p>
+                  <p>{`@${restaurant.contact.twitter}`}</p>
+                </Contacts>
+              </Container>
+            )}
+          </>
         );
       }}
     </CSSTransition>

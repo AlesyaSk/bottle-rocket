@@ -3,8 +3,35 @@ import styled from "styled-components/macro";
 
 import Card from "../../components/Card";
 
+type location = {
+  address: string;
+  crossStreet: string;
+  lat: number;
+  lng: number;
+  postalCode: string;
+  cc: string;
+  city: string;
+  state: string;
+  country: string;
+  formattedAddress: Array<string>;
+};
+
+type contact = {
+  formattedPhone: string;
+  twitter: string;
+  phone: number;
+};
+
+type restaurant = {
+  name: string;
+  category: string;
+  location: location;
+  contact: contact;
+  backgroundImageURL: string;
+};
+
 export interface ListViewComponentProps {
-  restaurantsList: any;
+  restaurantsList: Array<restaurant>;
   clickHandler: (restaurant: any) => void;
 }
 
