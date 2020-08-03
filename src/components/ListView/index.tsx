@@ -32,7 +32,7 @@ type restaurant = {
 
 export interface ListViewComponentProps {
   restaurantsList: Array<restaurant>;
-  clickHandler: (restaurant: any) => void;
+  clickHandler: (restaurant: restaurant) => void;
 }
 
 const ListView: React.FunctionComponent<ListViewComponentProps> = ({
@@ -42,7 +42,7 @@ const ListView: React.FunctionComponent<ListViewComponentProps> = ({
   return (
     <RestaurantsList>
       {restaurantsList &&
-        restaurantsList.map((restaurant: any) => (
+        restaurantsList.map((restaurant: restaurant) => (
           <Card
             name={restaurant.name}
             img={restaurant.backgroundImageURL}
