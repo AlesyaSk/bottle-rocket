@@ -1,25 +1,41 @@
+import { GET_ALL_RESTAURANTS } from "../actions/restaurants";
 
-import { GET_ALL_RESTAURANTS } from '../actions/restaurants';
-
-const initialState = {
-    info: {
-        isLoading: false
-    }
+type infoType = {
+  isLoading: boolean;
 };
 
-export default function reducer(state = initialState, action: any) {
+type initialStateType = {
+  info: infoType;
+};
 
-    switch (action.type) {
-        case GET_ALL_RESTAURANTS:
-            return { ...state, info: { ...state.info, isLoading: true } };
+const initialState = {
+  info: {
+    isLoading: false,
+  },
+};
 
-        case 'GET_ALL_RESTAURANTS_SUCCESS':
-            return { ...state, info: {...state.info, isLoading: false},  list: [...action.payload.restaurants]};
+export default function reducer(
+  state: initialStateType = initialState,
+  action: any
+) {
+  switch (action.type) {
+    case GET_ALL_RESTAURANTS:
+      return { ...state, info: { ...state.info, isLoading: true } };
 
-        case 'GET_ALL_RESTAURANTS_ERROR':
-            return { ...state, info: {...state.info, isLoading: false, error: action.error }};
+    case "GET_ALL_RESTAURANTS_SUCCESS":
+      return {
+        ...state,
+        info: { ...state.info, isLoading: false },
+        list: [...action.payload.restaurants],
+      };
 
-        default:
-            return state;
-    }
+    case "GET_ALL_RESTAURANTS_ERROR":
+      return {
+        ...state,
+        info: { ...state.info, isLoading: false, error: action.error },
+      };
+
+    default:
+      return state;
+  }
 }
